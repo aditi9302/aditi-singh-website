@@ -171,12 +171,10 @@
     }
 
     .hero-cta {
-      display: grid;
-      grid-template-columns: repeat(3, max-content);
-      justify-items: center;
-      align-items: center;
-      column-gap: 10px;
-      row-gap: 28px;
+      display: flex;
+      flex-direction: column;
+      width: fit-content;
+      gap: 28px;
     }
 
     .tag {
@@ -197,10 +195,17 @@
     }
 
     .tags,
-    .hero-actions { display: contents; }
+    .hero-actions {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .hero-actions { gap: 10px; }
 
     @media (max-width: 560px) {
-      .hero-cta { grid-template-columns: 1fr; justify-items: start; }
+      .hero-cta { width: auto; }
+      .tags,
+      .hero-actions { flex-wrap: wrap; justify-content: flex-start; gap: 8px; }
     }
 
     .btn {
