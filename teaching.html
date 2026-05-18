@@ -74,9 +74,6 @@
     }
     .nav-links a:hover { background: #2a4a3e; color: #f4efe6; border-color: #2a4a3e; }
     .nav-links a.active { background: #2a4a3e; color: #f4efe6; border-color: #2a4a3e; }
-    .nav-links a.cv-tab { background: #2a4a3e; color: #f4efe6; border-color: #2a4a3e; }
-    .nav-links a.cv-tab:hover { background: #1a1a28; border-color: #1a1a28; }
-
     /* ━━━━ PAGE HEADER ━━━━ */
     .page-header {
       padding-top: 72px;
@@ -323,10 +320,7 @@
       transition: color 0.2s, border-color 0.2s, background 0.2s;
     }
     .mobile-menu a:hover { color: var(--ink); border-color: var(--border); }
-    .mobile-menu a.active { color: var(--forest); border-color: var(--forest); background: rgba(42,74,62,0.06); }
-    .mobile-menu a.cv-tab { background: var(--forest); color: var(--cream); border-color: var(--forest); }
-    .mobile-menu a.cv-tab:hover { background: var(--ink); border-color: var(--ink); }
-    @media (max-width: 360px) {
+    .mobile-menu a.active { color: var(--forest); border-color: var(--forest); background: rgba(42,74,62,0.06); }    @media (max-width: 360px) {
       .nav-links { display: none; }
       .nav-burger { display: flex; }
     }
@@ -341,7 +335,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="research.html">Research</a></li>
       <li><a href="teaching.html" class="active">Teaching</a></li>
-      <li><a href="https://papers.aditi-singh.com/CV.pdf" target="_blank" class="cv-tab">CV ↗</a></li>
+      <li><a href="https://papers.aditi-singh.com/CV.pdf" target="_blank">CV</a></li>
     </ul>
     <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -353,7 +347,7 @@
     <a href="index.html">Home</a>
     <a href="research.html">Research</a>
     <a href="teaching.html" class="active">Teaching</a>
-    <a href="https://papers.aditi-singh.com/CV.pdf" target="_blank" class="cv-tab">CV ↗</a>
+    <a href="https://papers.aditi-singh.com/CV.pdf" target="_blank">CV</a>
   </div>
 
   <!-- ── Page Header ── -->
