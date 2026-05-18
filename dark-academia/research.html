@@ -26,6 +26,8 @@
       --gold-soft: #9d7f45;
       --oxblood:   #7d3a33;
       --line:      #3a2f1f;
+      --nav-bg:    rgba(20, 15, 10, 0.86);
+      --menu-bg:   rgba(20, 15, 10, 0.98);
       --nav-h:     72px;
     }
 
@@ -41,6 +43,8 @@
       --gold-soft: #a9883f;
       --oxblood:   #7d3a33;
       --line:      #cdbd97;
+      --nav-bg:    rgba(243, 235, 218, 0.9);
+      --menu-bg:   rgba(243, 235, 218, 0.98);
     }
 
     :root[data-theme="light"] body {
@@ -76,7 +80,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 0 56px;
-      background: rgba(20, 15, 10, 0.86);
+      background: var(--nav-bg);
       backdrop-filter: blur(10px) saturate(1.2);
       -webkit-backdrop-filter: blur(10px) saturate(1.2);
       border-bottom: 1px solid var(--line);
@@ -152,7 +156,7 @@
       display: none;
       position: fixed;
       top: var(--nav-h); left: 0; right: 0;
-      background: rgba(20, 15, 10, 0.98);
+      background: var(--menu-bg);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line);
