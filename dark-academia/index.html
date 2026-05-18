@@ -521,7 +521,14 @@
       .research-areas { grid-template-columns: 1fr; }
     }
   </style>
-  <script>try{if(localStorage.getItem('da-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
+  <script>
+  (function(){try{
+    var q=new URLSearchParams(location.search).get('theme');
+    var t=q||localStorage.getItem('da-theme');
+    if(q){try{localStorage.setItem('da-theme',q);}catch(e){}}
+    if(t==='light')document.documentElement.setAttribute('data-theme','light');
+  }catch(e){}})();
+  </script>
 </head>
 <body>
 
@@ -671,13 +678,32 @@
       document.getElementById('hero-inner').classList.add('loaded');
     });
 
+    const root = document.documentElement;
+    const currentTheme = () => root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    function syncThemeLinks() {
+      const t = currentTheme();
+      document.querySelectorAll('a[href]').forEach(a => {
+        const href = a.getAttribute('href');
+        if (!/^(index|research|teaching)\.html/.test(href)) return;
+        try {
+          const u = new URL(href, location.href);
+          u.searchParams.set('theme', t);
+          a.setAttribute('href', u.pathname.split('/').pop() + u.search + u.hash);
+        } catch (e) {}
+      });
+    }
+    syncThemeLinks();
+    if (location.search) {
+      try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {}
+    }
+
     const themeToggle = document.getElementById('theme-toggle');
     themeToggle.addEventListener('click', () => {
-      const root = document.documentElement;
       const toLight = root.getAttribute('data-theme') !== 'light';
       if (toLight) { root.setAttribute('data-theme', 'light'); }
       else { root.removeAttribute('data-theme'); }
       try { localStorage.setItem('da-theme', toLight ? 'light' : 'dark'); } catch (e) {}
+      syncThemeLinks();
     });
 
     const burger = document.getElementById('nav-burger');
