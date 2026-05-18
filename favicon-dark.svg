@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="6" fill="#17120d"/>
+  <rect x="3.5" y="3.5" width="57" height="57" rx="4" fill="none" stroke="#9d7f45" stroke-width="1.5"/>
+  <text x="32" y="33" text-anchor="middle" dominant-baseline="central"
+        font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="600"
+        letter-spacing="1" fill="#c5a35c">AS</text>
+</svg>

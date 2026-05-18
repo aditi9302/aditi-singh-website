@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Aditi Singh — Research. Working papers, work in progress, book chapters, and policy papers.">
   <meta name="color-scheme" content="dark">
+  <link rel="icon" id="favicon" href="/favicon-dark.svg" type="image/svg+xml">
   <title>Aditi Singh &mdash; Research</title>
 
   <!-- Google tag (gtag.js) -->
@@ -607,6 +608,10 @@
       try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {}
     }
 
+    const favicon = document.getElementById('favicon');
+    function setFavicon() { if (favicon) favicon.href = currentTheme() === 'light' ? '/favicon-light.svg' : '/favicon-dark.svg'; }
+    setFavicon();
+
     const themeToggle = document.getElementById('theme-toggle');
     themeToggle.addEventListener('click', () => {
       const toLight = root.getAttribute('data-theme') !== 'light';
@@ -614,6 +619,7 @@
       else { root.removeAttribute('data-theme'); }
       try { localStorage.setItem('da-theme', toLight ? 'light' : 'dark'); } catch (e) {}
       syncThemeLinks();
+      setFavicon();
     });
 
     const burger = document.getElementById('nav-burger');
