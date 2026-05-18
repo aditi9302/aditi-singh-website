@@ -170,11 +170,13 @@
       margin-bottom: 24px;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 28px;
+    .hero-cta {
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
+      justify-items: center;
+      align-items: center;
+      column-gap: 10px;
+      row-gap: 28px;
     }
 
     .tag {
@@ -194,11 +196,11 @@
       color: var(--cream);
     }
 
-    .hero-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
+    .tags,
+    .hero-actions { display: contents; }
+
+    @media (max-width: 560px) {
+      .hero-cta { grid-template-columns: 1fr; justify-items: start; }
     }
 
     .btn {
@@ -667,15 +669,17 @@
         &amp; Learning, Reserve Bank of India
       </p>
       <div class="rule"></div>
-      <div class="tags">
-        <span class="tag">Macroeconomics</span>
-        <span class="tag">Monetary Policy</span>
-        <span class="tag">Expectations</span>
-      </div>
-      <div class="hero-actions">
-        <a href="research.html" class="btn btn-solid">View Research</a>
-        <a href="teaching.html" class="btn btn-solid">View Teaching</a>
-        <a href="https://papers.aditi-singh.com/CV.pdf" target="_blank" class="btn btn-solid">Download CV</a>
+      <div class="hero-cta">
+        <div class="tags">
+          <span class="tag">Macroeconomics</span>
+          <span class="tag">Monetary Policy</span>
+          <span class="tag">Expectations</span>
+        </div>
+        <div class="hero-actions">
+          <a href="research.html" class="btn btn-solid">View Research</a>
+          <a href="teaching.html" class="btn btn-solid">View Teaching</a>
+          <a href="https://papers.aditi-singh.com/CV.pdf" target="_blank" class="btn btn-solid">Download CV</a>
+        </div>
       </div>
     </div>
 
