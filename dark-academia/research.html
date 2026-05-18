@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aditi Singh — Research. Working papers, work in progress, book chapters, and policy papers.">
+  <meta name="color-scheme" content="dark">
+  <title>Aditi Singh &mdash; Research</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      color-scheme: dark;
+      --bg:        #17120d;
+      --bg-2:      #1f1810;
+      --bg-3:      #261d14;
+      --paper:     #e9ddc5;
+      --paper-dim: #c2b291;
+      --muted:     #8c7c60;
+      --gold:      #c5a35c;
+      --gold-soft: #9d7f45;
+      --oxblood:   #7d3a33;
+      --line:      #3a2f1f;
+      --nav-h:     72px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse at 50% -10%, #2a2013 0%, rgba(42,32,19,0) 55%),
+        radial-gradient(ellipse at 50% 120%, #20180f 0%, rgba(32,24,15,0) 55%);
+      background-attachment: fixed;
+      color: var(--paper);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-weight: 400;
+      font-size: 1.04rem;
+      line-height: 1.78;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+
+    /* ━━━━ NAV ━━━━ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      background: rgba(20, 15, 10, 0.86);
+      backdrop-filter: blur(10px) saturate(1.2);
+      -webkit-backdrop-filter: blur(10px) saturate(1.2);
+      border-bottom: 1px solid var(--line);
+      z-index: 9999;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.55rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--paper);
+      text-decoration: none;
+    }
+    .nav-logo:hover { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 34px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--paper-dim);
+      text-decoration: none;
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 38px; height: 38px;
+      background: none; border: none;
+      cursor: pointer; padding: 4px;
+    }
+    .nav-burger span {
+      display: block; width: 24px; height: 1.5px;
+      background: var(--paper);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      background: rgba(20, 15, 10, 0.98);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      z-index: 490;
+      padding: 18px 28px 26px;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--paper-dim);
+      text-decoration: none;
+      padding: 12px 6px;
+      border-bottom: 1px solid var(--line);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a.active { color: var(--gold); }
+
+    /* ━━━━ PAGE HEADER ━━━━ */
+    .page-header {
+      padding: calc(var(--nav-h) + 90px) 56px 60px;
+      max-width: 1080px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--line);
+    }
+    .page-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .page-eyebrow .eyebrow-line { width: 40px; height: 1px; background: var(--gold-soft); }
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: 1.05;
+      color: var(--paper);
+    }
+    .page-title em { font-style: italic; color: var(--gold); }
+
+    /* ━━━━ CONTENT ━━━━ */
+    .content {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 70px 56px 110px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin: 64px 0 36px;
+    }
+    .section-header:first-child { margin-top: 0; }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .section-rule { flex: 1; height: 1px; background: var(--line); }
+
+    .paper {
+      padding: 26px 0 26px 28px;
+      border-left: 1px solid var(--line);
+      margin-bottom: 6px;
+      transition: border-color 0.3s;
+    }
+    .paper:hover { border-left-color: var(--gold-soft); }
+
+    .paper-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      line-height: 1.32;
+      color: var(--paper);
+      margin-bottom: 7px;
+    }
+    .paper-title a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .paper-title a:hover { color: var(--gold); }
+
+    .paper-meta {
+      font-size: 0.98rem;
+      font-style: italic;
+      color: var(--paper-dim);
+      line-height: 1.6;
+    }
+    .paper-meta a { color: var(--gold); text-decoration: none; }
+    .paper-meta a:hover { opacity: 0.7; }
+
+    .paper-status {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-soft);
+      padding: 3px 10px;
+      margin-top: 10px;
+    }
+
+    .paper-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .paper-link {
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--paper-dim);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      padding: 6px 13px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .paper-link:hover { color: var(--gold); border-color: var(--gold-soft); }
+
+    .paper-note {
+      font-size: 0.92rem;
+      color: var(--paper-dim);
+      line-height: 1.65;
+      margin-top: 12px;
+    }
+    .paper-note em { font-style: italic; color: var(--paper); }
+    .paper-note a { color: var(--gold); text-decoration: none; }
+    .paper-note a:hover { opacity: 0.7; }
+
+    .abstract-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 14px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'EB Garamond', serif;
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .toggle-icon {
+      display: inline-block;
+      width: 11px; height: 11px;
+      position: relative;
+    }
+    .toggle-icon::before,
+    .toggle-icon::after {
+      content: '';
+      position: absolute;
+      background: currentColor;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .toggle-icon::before { width: 11px; height: 1.5px; top: 4.75px; left: 0; }
+    .toggle-icon::after  { width: 1.5px; height: 11px; top: 0; left: 4.75px; }
+    .abstract-toggle.open .toggle-icon::after { transform: rotate(90deg); opacity: 0; }
+
+    .abstract-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .abstract-body.open { max-height: 1000px; }
+    .abstract-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.16rem;
+      line-height: 1.8;
+      color: var(--paper-dim);
+      padding-top: 16px;
+      text-align: justify;
+      max-width: 860px;
+    }
+
+    /* ━━━━ FOOTER ━━━━ */
+    footer {
+      text-align: center;
+      padding: 40px 32px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    /* ━━━━ REVEAL ━━━━ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.08s; }
+    .reveal-d2 { transition-delay: 0.16s; }
+    .reveal-d3 { transition-delay: 0.24s; }
+
+    @media (max-width: 880px) {
+      nav { padding: 0 26px; }
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .page-header { padding: calc(var(--nav-h) + 60px) 28px 44px; }
+      .content { padding: 56px 28px 90px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav id="site-nav">
+    <a class="nav-logo" href="index.html">Aditi Singh</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+      <li><a href="teaching.html">Teaching</a></li>
+      <li><a href="https://papers.aditi-singh.com/CV.pdf" target="_blank">CV</a></li>
+    </ul>
+    <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── Mobile Menu ── -->
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="research.html" class="active">Research</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="https://papers.aditi-singh.com/CV.pdf" target="_blank">CV</a>
+  </div>
+
+  <!-- ── Page Header ── -->
+  <header class="page-header">
+    <p class="page-eyebrow"><span class="eyebrow-line"></span>Aditi Singh</p>
+    <h1 class="page-title">Re<em>search</em></h1>
+  </header>
+
+  <!-- ── Content ── -->
+  <main class="content">
+
+    <!-- ── Working Papers ── -->
+    <div class="section-header reveal">
+      <span class="section-label">Working Papers</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <article class="paper reveal reveal-d1">
+      <h2 class="paper-title">
+        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4189773" target="_blank">What Determines Household Expectations?</a>
+      </h2>
+      <p class="paper-meta">With <a href="https://anushkamitra.com/#about" target="_blank">Anushka Mitra</a></p>
+      <span class="paper-status">Under Review</span>
+      <div class="paper-links">
+        <a class="paper-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4189773" target="_blank">SSRN</a>
+        <a class="paper-link" href="https://www.federalreserve.gov/econres/ifdp/what-determines-household-expectations.htm" target="_blank">Fed Board WP</a>
+      </div>
+      <button class="abstract-toggle" aria-expanded="false">
+        <span class="toggle-icon"></span>Abstract
+      </button>
+      <div class="abstract-body">
+        <p class="abstract-text">This paper examines which macroeconomic signals shape household expectations and finds that unemployment shocks play a more influential role than inflation shocks. Using daily data, we identify which announcements prompt households to revise their expectations. We construct two shock series — assuming households are either sophisticated or naive — based on the surprise components of announcements. Labor market news strongly influences both general economic sentiment and inflation expectations. Even when inflation rises and unemployment falls, households respond more to unemployment shocks. Most changes in inflation expectations are driven by labor market shocks. During negative supply and demand shocks, unemployment remains the dominant driver.</p>
+      </div>
+    </article>
+
+    <article class="paper reveal reveal-d2">
+      <h2 class="paper-title">
+        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5559305" target="_blank">Identifying Hand-to-Mouth Households: Evidence from India</a>
+      </h2>
+      <p class="paper-meta">With Vivek Gupta and <a href="https://sites.google.com/virginia.edu/fiorellapizzolon/home?authuser=0" target="_blank">Fiorella Pizzolon</a></p>
+      <div class="paper-links">
+        <a class="paper-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5559305" target="_blank">SSRN</a>
+      </div>
+      <button class="abstract-toggle" aria-expanded="false">
+        <span class="toggle-icon"></span>Abstract
+      </button>
+      <div class="abstract-body">
+        <p class="abstract-text">This paper investigates the prevalence and characteristics of poor hand-to-mouth (P-HtM) and wealthy hand-to-mouth (W-HtM) households in India — an emerging economy where high household savings coexist with limited liquidity and weak credit access. Using a harmonized dataset that combines two nationally representative surveys, we construct household-level balance sheets including income, consumption, and liquid and illiquid assets. We classify households into poor and wealthy HtM categories following the methodology of Kaplan et al. (2014), and use a range of machine learning models to impute missing income data. Our findings indicate that while P-HtM households account for 2–5% of the population, W-HtM households comprise a much larger share — 15–27%, with total HtM prevalence ranging from 17–32%. Classifications based solely on net worth substantially understate this share. We also find that average propensities to consume are similar across HtM and non-HtM groups, highlighting the broader financial constraints facing Indian households. These results underscore the importance of distinguishing between liquidity and net worth when evaluating consumption behavior and the transmission of fiscal and monetary policy in developing economies.</p>
+      </div>
+    </article>
+
+    <article class="paper reveal reveal-d3">
+      <h2 class="paper-title">
+        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5615250" target="_blank">Unequal Transmission: Monetary Policy and Household Consumption in India</a>
+      </h2>
+      <p class="paper-meta">With <a href="https://sites.google.com/virginia.edu/fiorellapizzolon/home?authuser=0" target="_blank">Fiorella Pizzolon</a></p>
+      <div class="paper-links">
+        <a class="paper-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5615250" target="_blank">SSRN</a>
+      </div>
+      <button class="abstract-toggle" aria-expanded="false">
+        <span class="toggle-icon"></span>Abstract
+      </button>
+      <div class="abstract-body">
+        <p class="abstract-text">This paper provides new empirical evidence on the effects of monetary policy shocks on household consumption, income, and employment in a large developing economy. Using high-frequency identification of monetary surprises combined with local projection methods, we estimate dynamic impulse responses to both current and expected policy shocks. Our results indicate that a contractionary shock to the short-term policy rate raises consumption and income on impact but reduces them in the medium run, while employment declines persistently. In contrast, a contractionary shock to the expected path of future interest rates increases consumption and employment but lowers income. We also observe heterogeneity across socio-economic groups: rural households, those with lower education, women, younger and older workers, and lower-caste groups exhibit significantly larger consumption declines. A back-of-the-envelope calculation yields a marginal propensity to consume of about 40 percent out of transitory, policy-induced income changes. Our findings highlight the importance of distributional channels in shaping the aggregate transmission of monetary policy in developing economies.</p>
+      </div>
+    </article>
+
+    <!-- ── Work in Progress ── -->
+    <div class="section-header reveal">
+      <span class="section-label">Work in Progress</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <article class="paper reveal reveal-d1">
+      <h2 class="paper-title">High-Frequency MPCs and the Transmission of Monetary Policy</h2>
+      <p class="paper-meta">With <a href="https://sites.google.com/virginia.edu/fiorellapizzolon/home?authuser=0" target="_blank">Fiorella Pizzolon</a></p>
+    </article>
+
+    <article class="paper reveal reveal-d2">
+      <h2 class="paper-title">The Role of Inflation Expectations in the Phillips Curve</h2>
+      <p class="paper-meta">With <a href="https://www.gittigiulia.com/" target="_blank">Giulia Gitti</a></p>
+    </article>
+
+    <article class="paper reveal reveal-d3">
+      <h2 class="paper-title">The Dynamics of News and Expectations</h2>
+      <p class="paper-meta">With <a href="https://sites.google.com/view/amy-handlan/research" target="_blank">Amy Handlan</a></p>
+    </article>
+
+    <article class="paper reveal">
+      <h2 class="paper-title">Cyclical Labor Market Slack</h2>
+    </article>
+
+    <!-- ── Book Chapters / Other Writing ── -->
+    <div class="section-header reveal">
+      <span class="section-label">Book Chapters &amp; Other Writing</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <article class="paper reveal reveal-d1">
+      <h2 class="paper-title">
+        <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5684682" target="_blank">Unraveling India's Household Savings Puzzle: Trends, Comparisons, and Implications for Growth</a>
+      </h2>
+      <p class="paper-meta">With <a href="https://prachimishra.in/" target="_blank">Prachi Mishra</a></p>
+      <span class="paper-status">Forthcoming, May 2026</span>
+      <div class="paper-links">
+        <a class="paper-link" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5684682" target="_blank">SSRN</a>
+      </div>
+      <p class="paper-note">Chapter in <em>The Indian Economy: Navigating a Global Turning Point</em>. Edited by <a href="https://kaushikbasu.org/" target="_blank">Kaushik Basu</a>, <a href="https://www.sonaldedesai.org/" target="_blank">Sonalde Desai</a>, <a href="https://www.ashoka.edu.in/profile/ashwini-deshpande/" target="_blank">Ashwini Deshpande</a> and <a href="https://nirvikarsingh.sites.ucsc.edu/" target="_blank">Nirvikar Singh</a>. Published by Simon &amp; Schuster.</p>
+      <button class="abstract-toggle" aria-expanded="false" style="margin-top: 12px;">
+        <span class="toggle-icon"></span>Abstract
+      </button>
+      <div class="abstract-body">
+        <p class="abstract-text">The savings rate in the Indian economy has declined sharply since 2007 and approached a low of 29% of GDP in 2020. In this paper, we take a closer look at the historical evolution of aggregate savings in India, as well as its different components. We use a simple framework that seeks to explain the time variation in savings over the sample period. We find that increased prosperity more than explains the decline in savings of Indian households, while the decline in old age dependency was a major offset. Our baseline forecast implies a roughly 2 percentage point decline in household savings as a fraction of GDP over the next five years.</p>
+      </div>
+    </article>
+
+    <article class="paper reveal reveal-d2">
+      <h2 class="paper-title">Decomposing India's Inflation Expectations</h2>
+      <p class="paper-meta">With Pushpendu Ghosh</p>
+      <button class="abstract-toggle" aria-expanded="false">
+        <span class="toggle-icon"></span>Abstract
+      </button>
+      <div class="abstract-body">
+        <p class="abstract-text">Using repeated cross-sections from the Reserve Bank of India's Inflation Expectations Survey of Households (IESH), this paper documents the evolution and heterogeneity of household inflation expectations in India. We construct consistent measures of short- and medium-term expectations and show that aggregate expectations co-move strongly with realized inflation, exhibiting persistent upward shifts during high-inflation episodes. Exploiting rich demographic variation, we uncover substantial and time-varying heterogeneity: women and younger people report systematically higher and more volatile expectations, while men and older age groups display relatively more anchored beliefs. These findings provide new stylized facts on expectation formation in a large emerging economy and have implications for monetary policy transmission and communication.</p>
+      </div>
+    </article>
+
+    <article class="paper reveal reveal-d3">
+      <h2 class="paper-title">The Price of Credit: Interest Rate Dispersion Across Formal and Informal Lenders in India</h2>
+      <p class="paper-meta">With Vivek Gupta</p>
+      <button class="abstract-toggle" aria-expanded="false">
+        <span class="toggle-icon"></span>Abstract
+      </button>
+      <div class="abstract-body">
+        <p class="abstract-text">We document the structure of interest rates faced by Indian households across formal and informal credit sources using the All India Debt and Investment Survey (AIDIS) 2019. Despite decades of financial sector reform, a substantial share of household borrowing in India occurs outside the formal system, and the rates borrowers pay vary widely both across and within sectors. We find that informal rates exceed formal rates by roughly 15–20 percentage points on average, with professional moneylenders charging the highest rates. Observable borrower and loan characteristics account for less than half of the formal-informal gap, and residual gaps are largest for SC/ST households and those in the bottom asset quintiles, suggesting that unequal access, rather than unequal risk, drives much of the dispersion.</p>
+      </div>
+    </article>
+
+    <!-- ── Policy Papers ── -->
+    <div class="section-header reveal">
+      <span class="section-label">Policy Papers</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <article class="paper reveal reveal-d1">
+      <h2 class="paper-title">Are Inflation Expectations of Indian Households Biased?</h2>
+      <p class="paper-meta">With Pushpendu Ghosh</p>
+    </article>
+
+    <article class="paper reveal reveal-d2">
+      <h2 class="paper-title">Disentangling Oil-Driven Inflation in India</h2>
+      <p class="paper-meta">With <a href="https://natashajha.github.io/" target="_blank">Natasha Jha</a> and Aftab Ahmed</p>
+    </article>
+
+    <article class="paper reveal reveal-d3">
+      <h2 class="paper-title">The Anatomy of India's Business Sentiment</h2>
+      <p class="paper-meta">With Pushpendu Ghosh</p>
+    </article>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <p>&copy; 2026 Aditi Singh</p>
+  </footer>
+
+  <script>
+    const burger = document.getElementById('nav-burger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    burger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      burger.setAttribute('aria-expanded', String(isOpen));
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+
+    document.querySelectorAll('.abstract-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const body = btn.nextElementSibling;
+        const isOpen = body.classList.contains('open');
+        body.classList.toggle('open', !isOpen);
+        btn.classList.toggle('open', !isOpen);
+        btn.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aditi Singh — Assistant Professor at CAFRAL, Reserve Bank of India. Research in Macroeconomics, Monetary Policy, and Expectations.">
+  <meta name="color-scheme" content="dark">
+  <title>Aditi Singh</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      color-scheme: dark;
+      --bg:        #17120d;
+      --bg-2:      #1f1810;
+      --bg-3:      #261d14;
+      --paper:     #e9ddc5;
+      --paper-dim: #c2b291;
+      --muted:     #8c7c60;
+      --gold:      #c5a35c;
+      --gold-soft: #9d7f45;
+      --oxblood:   #7d3a33;
+      --line:      #3a2f1f;
+      --nav-h:     72px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse at 50% -10%, #2a2013 0%, rgba(42,32,19,0) 55%),
+        radial-gradient(ellipse at 50% 120%, #20180f 0%, rgba(32,24,15,0) 55%);
+      background-attachment: fixed;
+      color: var(--paper);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-weight: 400;
+      font-size: 1.04rem;
+      line-height: 1.78;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ NAV ━━━━━━ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      background: rgba(20, 15, 10, 0.86);
+      backdrop-filter: blur(10px) saturate(1.2);
+      -webkit-backdrop-filter: blur(10px) saturate(1.2);
+      border-bottom: 1px solid var(--line);
+      z-index: 9999;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.55rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--paper);
+      text-decoration: none;
+    }
+    .nav-logo:hover { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 34px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--paper-dim);
+      text-decoration: none;
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 38px; height: 38px;
+      background: none; border: none;
+      cursor: pointer; padding: 4px;
+    }
+    .nav-burger span {
+      display: block; width: 24px; height: 1.5px;
+      background: var(--paper);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      background: rgba(20, 15, 10, 0.98);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      z-index: 490;
+      padding: 18px 28px 26px;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--paper-dim);
+      text-decoration: none;
+      padding: 12px 6px;
+      border-bottom: 1px solid var(--line);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a.active { color: var(--gold); }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ HERO ━━━━━━ */
+    .hero {
+      min-height: 100vh;
+      padding: calc(var(--nav-h) + 80px) 32px 96px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 720px;
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    .hero-inner.loaded { opacity: 1; transform: none; }
+
+    .portrait {
+      width: 188px;
+      margin: 0 auto 40px;
+    }
+    .portrait img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 12%;
+      display: block;
+      filter: grayscale(0.35) sepia(0.32) contrast(0.96) brightness(0.92);
+      border: 1px solid var(--gold-soft);
+      outline: 1px solid var(--line);
+      outline-offset: 7px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+    .eyebrow::before,
+    .eyebrow::after {
+      content: '';
+      width: 46px; height: 1px;
+      background: var(--gold-soft);
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(56px, 8vw, 104px);
+      line-height: 1.04;
+      letter-spacing: 0.005em;
+      color: var(--paper);
+    }
+    .hero-name .it {
+      font-style: italic;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1.06rem;
+      color: var(--paper-dim);
+      line-height: 1.7;
+      margin: 22px auto 0;
+      max-width: 460px;
+    }
+    .hero-sub strong { color: var(--paper); font-weight: 600; }
+
+    .ornament {
+      color: var(--gold-soft);
+      font-size: 1.5rem;
+      margin: 30px 0 34px;
+      line-height: 1;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 38px;
+    }
+    .tag {
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--paper-dim);
+      border: 1px solid var(--line);
+      padding: 7px 16px;
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .tag:hover { color: var(--gold); border-color: var(--gold-soft); }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+    .btn {
+      font-family: 'EB Garamond', serif;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 26px;
+      border: 1px solid var(--gold-soft);
+      color: var(--gold);
+      transition: background 0.25s, color 0.25s, transform 0.2s;
+    }
+    .btn:hover {
+      background: var(--gold);
+      color: var(--bg);
+      transform: translateY(-2px);
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ SECTIONS ━━━━━━ */
+    .section {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 100px 56px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 56px;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    .bio-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      line-height: 1.85;
+      color: var(--paper);
+    }
+    .bio-text p + p { margin-top: 22px; }
+    .bio-text p:first-of-type::first-letter {
+      font-size: 3.4rem;
+      font-weight: 600;
+      float: left;
+      line-height: 0.86;
+      padding: 6px 12px 0 0;
+      color: var(--gold);
+    }
+    .bio-text a {
+      color: var(--paper);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold-soft);
+      transition: color 0.2s;
+    }
+    .bio-text a:hover { color: var(--gold); }
+
+    .contact-card {
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-top: 2px solid var(--gold-soft);
+      padding: 38px 38px 34px;
+    }
+    .contact-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--paper);
+      margin-bottom: 26px;
+    }
+    .contact-row { margin-bottom: 22px; }
+    .contact-row-label {
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+    .contact-row-value { font-size: 0.98rem; line-height: 1.7; }
+    .contact-row-value a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .contact-row-value a:hover { opacity: 0.7; }
+
+    .social-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--paper-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .social-link:hover { color: var(--gold); }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ RESEARCH BAND ━━━━━━ */
+    .research-band {
+      background: var(--bg-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 96px 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .research-band::before {
+      content: 'Research';
+      position: absolute;
+      right: -10px; top: -26px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(90px, 15vw, 230px);
+      font-weight: 700;
+      color: rgba(197, 163, 92, 0.05);
+      line-height: 1;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .research-band-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .research-areas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 46px;
+    }
+    .research-area {
+      padding: 30px 26px;
+      border: 1px solid var(--line);
+      border-top: 2px solid var(--gold-soft);
+      background: var(--bg-3);
+    }
+    .research-area-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 2.2rem;
+      color: var(--gold-soft);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .research-area-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--paper);
+    }
+    .btn-ghost {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold-soft);
+      padding: 13px 28px;
+      transition: background 0.25s, color 0.25s, transform 0.2s;
+    }
+    .btn-ghost:hover { background: var(--gold); color: var(--bg); transform: translateY(-2px); }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ FOOTER ━━━━━━ */
+    footer {
+      text-align: center;
+      padding: 40px 32px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ REVEAL ━━━━━━ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+    .reveal-delay-3 { transition-delay: 0.36s; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ RESPONSIVE ━━━━━━ */
+    @media (max-width: 880px) {
+      nav { padding: 0 26px; }
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .section { padding: 72px 28px; }
+      .about-grid { grid-template-columns: 1fr; gap: 44px; }
+      .research-band { padding: 72px 28px; }
+      .research-areas { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav id="site-nav">
+    <a class="nav-logo" href="index.html">Aditi Singh</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="teaching.html">Teaching</a></li>
+      <li><a href="https://papers.aditi-singh.com/CV.pdf" target="_blank">CV</a></li>
+    </ul>
+    <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── Mobile Menu ── -->
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html" class="active">Home</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html">Teaching</a>
+    <a href="https://papers.aditi-singh.com/CV.pdf" target="_blank">CV</a>
+  </div>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-inner" id="hero-inner">
+      <figure class="portrait">
+        <img src="../image website.jpg" alt="Aditi Singh">
+      </figure>
+      <p class="eyebrow">Economist</p>
+      <h1 class="hero-name">Aditi <span class="it">Singh</span></h1>
+      <p class="hero-sub">
+        <strong>Assistant Professor</strong> at CAFRAL — Centre for Advanced
+        Financial Research &amp; Learning, Reserve Bank of India
+      </p>
+      <div class="ornament">&#10087;</div>
+      <div class="tags">
+        <span class="tag">Macroeconomics</span>
+        <span class="tag">Monetary Policy</span>
+        <span class="tag">Expectations</span>
+      </div>
+      <div class="actions">
+        <a href="research.html" class="btn">View Research</a>
+        <a href="teaching.html" class="btn">View Teaching</a>
+        <a href="https://papers.aditi-singh.com/CV.pdf" target="_blank" class="btn">Download CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About ── -->
+  <section class="section" id="about">
+    <div class="section-header reveal">
+      <span class="section-label">About</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="about-grid">
+      <div class="bio-text reveal reveal-delay-1">
+        <p>
+          I am an Assistant Professor at the
+          <a href="https://www.cafral.org.in/" target="_blank">Centre for Advanced Financial Research and Learning (CAFRAL)</a>,
+          an organization promoted by the
+          <a href="https://www.rbi.org.in/" target="_blank">Reserve Bank of India</a>.
+        </p>
+        <p>
+          I obtained my PhD in Economics from
+          <a href="https://www.brown.edu/" target="_blank">Brown University</a> in 2023.
+          My research sits at the intersection of macroeconomics, monetary policy, and the
+          formation and propagation of expectations — with a focus on how central banks can
+          communicate effectively and anchor beliefs in the economy.
+        </p>
+      </div>
+
+      <div class="contact-card reveal reveal-delay-2">
+        <h2 class="contact-card-title">Contact</h2>
+
+        <div class="contact-row">
+          <p class="contact-row-label">Email</p>
+          <p class="contact-row-value">
+            <a href="mailto:aditi.singh@cafral.org.in">aditi.singh@cafral.org.in</a><br>
+            <a href="mailto:aditi_singh@alumni.brown.edu">aditi_singh@alumni.brown.edu</a>
+          </p>
+        </div>
+
+        <div class="contact-row">
+          <p class="contact-row-label">Affiliation</p>
+          <p class="contact-row-value">
+            <a href="https://www.cafral.org.in/" target="_blank">CAFRAL, Reserve Bank of India</a>
+          </p>
+        </div>
+
+        <div class="social-row">
+          <a class="social-link" href="https://www.linkedin.com/in/aditi-singh-b6ba27177/" target="_blank">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452H16.893V14.883C16.893 13.555 16.866 11.846 15.041 11.846C13.188 11.846 12.905 13.291 12.905 14.785V20.452H9.351V9H12.765V10.561H12.811C13.288 9.661 14.448 8.711 16.181 8.711C19.782 8.711 20.448 11.081 20.448 14.166V20.452H20.447ZM5.337 7.433C4.193 7.433 3.274 6.507 3.274 5.368C3.274 4.23 4.194 3.305 5.337 3.305C6.477 3.305 7.401 4.23 7.401 5.368C7.401 6.507 6.476 7.433 5.337 7.433ZM7.119 20.452H3.555V9H7.119V20.452ZM22.225 0H1.771C0.792 0 0 0.774 0 1.729V22.271C0 23.227 0.792 24 1.771 24H22.222C23.2 24 24 23.227 24 22.271V1.729C24 0.774 23.2 0 22.222 0H22.225Z"/></svg>
+            LinkedIn
+          </a>
+          <a class="social-link" href="https://x.com/_singh_aditi" target="_blank" aria-label="X">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.258 5.633 5.906-5.633zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Research band ── -->
+  <section class="research-band" id="research">
+    <div class="research-band-inner">
+      <div class="section-header reveal">
+        <span class="section-label">Research</span>
+        <span class="section-rule"></span>
+      </div>
+
+      <div class="research-areas reveal reveal-delay-2">
+        <div class="research-area">
+          <p class="research-area-num">I</p>
+          <p class="research-area-name">Macroeconomics</p>
+        </div>
+        <div class="research-area">
+          <p class="research-area-num">II</p>
+          <p class="research-area-name">Monetary Policy</p>
+        </div>
+        <div class="research-area">
+          <p class="research-area-num">III</p>
+          <p class="research-area-name">Expectations</p>
+        </div>
+      </div>
+
+      <a href="research.html" class="btn-ghost reveal reveal-delay-3">View Working Papers &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <p>&copy; 2026 Aditi Singh</p>
+  </footer>
+
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('hero-inner').classList.add('loaded');
+    });
+
+    const burger = document.getElementById('nav-burger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    burger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      burger.setAttribute('aria-expanded', String(isOpen));
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.14 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>

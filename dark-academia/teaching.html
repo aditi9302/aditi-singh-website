@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aditi Singh — Teaching. Courses at Shiv Nadar University and Brown University.">
+  <meta name="color-scheme" content="dark">
+  <title>Aditi Singh &mdash; Teaching</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      color-scheme: dark;
+      --bg:        #17120d;
+      --bg-2:      #1f1810;
+      --bg-3:      #261d14;
+      --paper:     #e9ddc5;
+      --paper-dim: #c2b291;
+      --muted:     #8c7c60;
+      --gold:      #c5a35c;
+      --gold-soft: #9d7f45;
+      --oxblood:   #7d3a33;
+      --line:      #3a2f1f;
+      --nav-h:     72px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse at 50% -10%, #2a2013 0%, rgba(42,32,19,0) 55%),
+        radial-gradient(ellipse at 50% 120%, #20180f 0%, rgba(32,24,15,0) 55%);
+      background-attachment: fixed;
+      color: var(--paper);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-weight: 400;
+      font-size: 1.04rem;
+      line-height: 1.78;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+
+    /* ━━━━ NAV ━━━━ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      background: rgba(20, 15, 10, 0.86);
+      backdrop-filter: blur(10px) saturate(1.2);
+      -webkit-backdrop-filter: blur(10px) saturate(1.2);
+      border-bottom: 1px solid var(--line);
+      z-index: 9999;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.55rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--paper);
+      text-decoration: none;
+    }
+    .nav-logo:hover { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 34px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--paper-dim);
+      text-decoration: none;
+      padding-bottom: 4px;
+      border-bottom: 1px solid transparent;
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 38px; height: 38px;
+      background: none; border: none;
+      cursor: pointer; padding: 4px;
+    }
+    .nav-burger span {
+      display: block; width: 24px; height: 1.5px;
+      background: var(--paper);
+      transition: transform 0.3s, opacity 0.3s;
+    }
+    .nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h); left: 0; right: 0;
+      background: rgba(20, 15, 10, 0.98);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      z-index: 490;
+      padding: 18px 28px 26px;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--paper-dim);
+      text-decoration: none;
+      padding: 12px 6px;
+      border-bottom: 1px solid var(--line);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu a.active { color: var(--gold); }
+
+    /* ━━━━ PAGE HEADER ━━━━ */
+    .page-header {
+      padding: calc(var(--nav-h) + 90px) 56px 60px;
+      max-width: 1080px;
+      margin: 0 auto;
+      border-bottom: 1px solid var(--line);
+    }
+    .page-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+    .page-eyebrow .eyebrow-line { width: 40px; height: 1px; background: var(--gold-soft); }
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: clamp(48px, 7vw, 88px);
+      line-height: 1.05;
+      color: var(--paper);
+    }
+    .page-title em { font-style: italic; color: var(--gold); }
+
+    /* ━━━━ CONTENT ━━━━ */
+    .content {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 70px 56px 110px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin: 60px 0 32px;
+    }
+    .section-header:first-child { margin-top: 0; }
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+    }
+    .section-rule { flex: 1; height: 1px; background: var(--line); }
+
+    .course {
+      padding: 22px 0 22px 28px;
+      border-left: 1px solid var(--line);
+      margin-bottom: 4px;
+      transition: border-color 0.3s;
+    }
+    .course:hover { border-left-color: var(--gold-soft); }
+
+    .course-top {
+      display: grid;
+      grid-template-columns: 8.5rem 1fr;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 6px;
+    }
+    /* Brown rows ("Teaching Assistant") need a wider role column than
+       the Shiv Nadar rows ("Co-Instructor"/"Instructor") */
+    .course-top:has(.course-role.ta) { grid-template-columns: 11rem 1fr; }
+
+    .course-role {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-soft);
+      padding: 4px 10px;
+      white-space: nowrap;
+      justify-self: start;
+    }
+    .course-role.ta {
+      color: var(--paper-dim);
+      border-color: var(--line);
+    }
+
+    .course-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--paper);
+    }
+    .course-name a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold-soft);
+      transition: color 0.2s;
+    }
+    .course-name a:hover { color: var(--gold); }
+
+    .course-meta {
+      font-size: 0.92rem;
+      color: var(--paper-dim);
+      line-height: 1.6;
+    }
+    .course-meta em { font-style: italic; }
+    .course-meta a { color: var(--gold); text-decoration: none; }
+    .course-meta a:hover { opacity: 0.7; }
+
+    .evals-wrap { margin-top: 56px; }
+    .evals-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold-soft);
+      padding: 15px 30px;
+      transition: background 0.25s, color 0.25s, transform 0.2s;
+    }
+    .evals-btn:hover { background: var(--gold); color: var(--bg); transform: translateY(-2px); }
+    .evals-btn svg {
+      width: 16px; height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ━━━━ FOOTER ━━━━ */
+    footer {
+      text-align: center;
+      padding: 40px 32px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    /* ━━━━ REVEAL ━━━━ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.06s; }
+    .reveal-d2 { transition-delay: 0.12s; }
+    .reveal-d3 { transition-delay: 0.18s; }
+    .reveal-d4 { transition-delay: 0.24s; }
+    .reveal-d5 { transition-delay: 0.30s; }
+
+    @media (max-width: 880px) {
+      nav { padding: 0 26px; }
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .page-header { padding: calc(var(--nav-h) + 60px) 28px 44px; }
+      .content { padding: 56px 28px 90px; }
+    }
+    @media (max-width: 560px) {
+      .course-top,
+      .course-top:has(.course-role.ta) { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav id="site-nav">
+    <a class="nav-logo" href="index.html">Aditi Singh</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="teaching.html" class="active">Teaching</a></li>
+      <li><a href="https://papers.aditi-singh.com/CV.pdf" target="_blank">CV</a></li>
+    </ul>
+    <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── Mobile Menu ── -->
+  <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="teaching.html" class="active">Teaching</a>
+    <a href="https://papers.aditi-singh.com/CV.pdf" target="_blank">CV</a>
+  </div>
+
+  <!-- ── Page Header ── -->
+  <header class="page-header">
+    <p class="page-eyebrow"><span class="eyebrow-line"></span>Aditi Singh</p>
+    <h1 class="page-title">Tea<em>ching</em></h1>
+  </header>
+
+  <!-- ── Content ── -->
+  <main class="content">
+
+    <!-- ── Shiv Nadar University ── -->
+    <div class="section-header reveal">
+      <span class="section-label">Shiv Nadar University</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <article class="course reveal reveal-d1">
+      <div class="course-top">
+        <span class="course-role">Co-Instructor</span>
+        <span class="course-name">Intermediate Macroeconomics</span>
+      </div>
+      <p class="course-meta"><em>Fall 2024, 2025</em> &ensp;&middot;&ensp; with <a href="https://snu.edu.in/faculty/trishita-ray-baraman/" target="_blank">Trishita Ray Barman</a></p>
+    </article>
+
+    <article class="course reveal reveal-d2">
+      <div class="course-top">
+        <span class="course-role">Instructor</span>
+        <span class="course-name">Advanced Macroeconomics</span>
+      </div>
+      <p class="course-meta"><em>Spring 2024</em></p>
+    </article>
+
+    <article class="course reveal reveal-d3">
+      <div class="course-top">
+        <span class="course-role">Co-Instructor</span>
+        <span class="course-name">Macroeconomics Workshop</span>
+      </div>
+      <p class="course-meta"><em>Spring 2024, 2025</em> &ensp;&middot;&ensp; with <a href="https://www.parthachatterjee.net/" target="_blank">Partha Chatterjee</a></p>
+    </article>
+
+    <article class="course reveal reveal-d4">
+      <div class="course-top">
+        <span class="course-role">Co-Instructor</span>
+        <span class="course-name">Graduate Macroeconomics I</span>
+      </div>
+      <p class="course-meta"><em>Fall 2023, 2024</em> &ensp;&middot;&ensp; with <a href="https://www.parthachatterjee.net/" target="_blank">Partha Chatterjee</a></p>
+    </article>
+
+    <article class="course reveal reveal-d5">
+      <div class="course-top">
+        <span class="course-role">Instructor</span>
+        <span class="course-name">Intermediate Macroeconomics</span>
+      </div>
+      <p class="course-meta"><em>Fall 2023</em></p>
+    </article>
+
+    <!-- ── Brown University ── -->
+    <div class="section-header reveal">
+      <span class="section-label">Brown University</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <article class="course reveal reveal-d1">
+      <div class="course-top">
+        <span class="course-role ta">Teaching Assistant</span>
+        <span class="course-name"><a href="https://papers.aditi-singh.com/IO.pdf" target="_blank">Industrial Organization</a></span>
+      </div>
+      <p class="course-meta"><em>Fall 2022, Spring 2021</em> &ensp;&middot;&ensp; with Manuel Lancastre</p>
+    </article>
+
+    <article class="course reveal reveal-d2">
+      <div class="course-top">
+        <span class="course-role ta">Teaching Assistant</span>
+        <span class="course-name"><a href="https://papers.aditi-singh.com/International%20finance.pdf" target="_blank">International Finance</a></span>
+      </div>
+      <p class="course-meta"><em>Fall 2021</em> &ensp;&middot;&ensp; with Manuel Lancastre</p>
+    </article>
+
+    <article class="course reveal reveal-d3">
+      <div class="course-top">
+        <span class="course-role ta">Teaching Assistant</span>
+        <span class="course-name"><a href="https://papers.aditi-singh.com/Intermediate%20macro.pdf" target="_blank">Intermediate Macroeconomics</a></span>
+      </div>
+      <p class="course-meta"><em>Spring 2022</em> &ensp;&middot;&ensp; with <a href="https://sites.google.com/brown.edu/kellie-forrester/home" target="_blank">Kellie Forrester</a></p>
+    </article>
+
+    <article class="course reveal reveal-d4">
+      <div class="course-top">
+        <span class="course-role ta">Teaching Assistant</span>
+        <span class="course-name"><a href="https://papers.aditi-singh.com/Intermediate%20Macro%20M.pdf" target="_blank">Intermediate Macroeconomics</a></span>
+      </div>
+      <p class="course-meta"><em>Spring 2020, Fall 2020, Spring 2019, Fall 2018</em> &ensp;&middot;&ensp; with Manuel Lancastre</p>
+    </article>
+
+    <!-- ── Teaching Evaluations ── -->
+    <div class="evals-wrap reveal">
+      <a class="evals-btn" href="https://papers.aditi-singh.com/Teaching%20evaluations.pdf" target="_blank">
+        Teaching Evaluations
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <p>&copy; 2026 Aditi Singh</p>
+  </footer>
+
+  <script>
+    const burger = document.getElementById('nav-burger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    burger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      burger.classList.toggle('open', isOpen);
+      burger.setAttribute('aria-expanded', String(isOpen));
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        burger.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+
+</body>
+</html>
