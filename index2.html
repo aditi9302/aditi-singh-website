@@ -9,7 +9,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,10 +43,7 @@
 
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ NAV ━━━━━━ */
     nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      position: static;
       height: var(--nav-h);
       display: flex;
       align-items: center;
@@ -58,7 +55,7 @@
     }
 
     .nav-logo {
-      font-family: 'Cormorant Garant', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 1.35rem;
       font-weight: 600;
       letter-spacing: 0.04em;
@@ -111,8 +108,7 @@
 
     /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ HERO ━━━━━━ */
     .hero {
-      min-height: 60vh;
-      padding-top: var(--nav-h);
+      min-height: calc(60vh - var(--nav-h));
       display: grid;
       grid-template-columns: 52% 48%;
     }
@@ -149,7 +145,7 @@
     }
 
     .hero-name {
-      font-family: 'Cormorant Garant', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
       font-size: clamp(38px, 4.8vw, 68px);
       line-height: 1.0;
@@ -343,7 +339,7 @@
     }
 
     .bio-text {
-      font-family: 'Cormorant Garant', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 1.22rem;
       font-weight: 400;
       line-height: 1.85;
@@ -373,7 +369,7 @@
     }
 
     .contact-card-title {
-      font-family: 'Cormorant Garant', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 1.5rem;
       font-weight: 600;
       color: var(--ink);
@@ -442,7 +438,7 @@
       position: absolute;
       right: -20px;
       top: -20px;
-      font-family: 'Cormorant Garant', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: clamp(90px, 14vw, 220px);
       font-weight: 700;
       font-style: italic;
@@ -462,7 +458,7 @@
     .research-band .section-rule  { background: rgba(244,239,230,0.12); }
 
     .research-band-heading {
-      font-family: 'Cormorant Garant', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.6rem, 3vw, 2.4rem);
       font-weight: 300;
       font-style: italic;
@@ -486,7 +482,7 @@
     }
 
     .research-area-num {
-      font-family: 'Cormorant Garant', serif;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 2rem;
       font-weight: 300;
       color: rgba(244,239,230,0.18);
