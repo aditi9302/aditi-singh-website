@@ -364,12 +364,12 @@
 
   <!-- ── Navigation ── -->
   <nav id="site-nav">
-    <a class="nav-logo" href="index.html">Aditi Singh</a>
+    <a class="nav-logo" href="/">Aditi Singh</a>
     <div class="nav-actions">
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="research.html">Research</a></li>
-      <li><a href="teaching.html" class="active">Teaching</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/research/">Research</a></li>
+      <li><a href="/teaching/" class="active">Teaching</a></li>
       <li><a href="https://papers.aditi-singh.com/CV.pdf" target="_blank">CV</a></li>
     </ul>
     <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle light and dark mode">
@@ -384,9 +384,9 @@
 
   <!-- ── Mobile Menu ── -->
   <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="teaching.html" class="active">Teaching</a>
+    <a href="/">Home</a>
+    <a href="/research/">Research</a>
+    <a href="/teaching/" class="active">Teaching</a>
     <a href="https://papers.aditi-singh.com/CV.pdf" target="_blank">CV</a>
   </div>
 
@@ -507,12 +507,10 @@
       const t = currentTheme();
       document.querySelectorAll('a[href]').forEach(a => {
         const href = a.getAttribute('href');
-        if (!/^(index|research|teaching)\.html/.test(href)) return;
-        try {
-          const u = new URL(href, location.href);
-          u.searchParams.set('theme', t);
-          a.setAttribute('href', u.pathname.split('/').pop() + u.search + u.hash);
-        } catch (e) {}
+        if (!/^\/(research\/|teaching\/)?($|[?#])/.test(href)) return;
+        const hash = href.includes('#') ? href.slice(href.indexOf('#')) : '';
+        const base = href.split('#')[0].split('?')[0];
+        a.setAttribute('href', base + '?theme=' + t + hash);
       });
     }
     syncThemeLinks();
