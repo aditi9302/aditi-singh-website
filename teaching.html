@@ -146,10 +146,16 @@
 
     .course-top {
       display: grid;
-      grid-template-columns: 180px 1fr;
+      grid-template-columns: 8.5rem 1fr;
       align-items: baseline;
       gap: 10px;
       margin-bottom: 5px;
+    }
+
+    /* Brown rows ("Teaching Assistant") need a wider role column than
+       the Shiv Nadar rows ("Co-Instructor"/"Instructor") */
+    .course-top:has(.course-role.ta) {
+      grid-template-columns: 180px 1fr;
     }
 
     .course-role {
@@ -197,7 +203,8 @@
     .course-meta a:hover { opacity: 0.7; }
 
     @media (max-width: 560px) {
-      .course-top { grid-template-columns: 1fr; }
+      .course-top,
+      .course-top:has(.course-role.ta) { grid-template-columns: 1fr; }
     }
 
     /* ━━━━ EVALUATIONS BUTTON ━━━━ */
