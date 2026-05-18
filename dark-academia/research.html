@@ -29,6 +29,26 @@
       --nav-h:     72px;
     }
 
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg:        #f0e7d3;
+      --bg-2:      #e9dcc1;
+      --bg-3:      #e3d5b6;
+      --paper:     #2e2417;
+      --paper-dim: #5f5236;
+      --muted:     #8a785a;
+      --gold:      #876722;
+      --gold-soft: #a9883f;
+      --oxblood:   #7d3a33;
+      --line:      #cdbd97;
+    }
+
+    :root[data-theme="light"] body {
+      background-image:
+        radial-gradient(ellipse at 50% -10%, #f8f1de 0%, rgba(248,241,222,0) 55%),
+        radial-gradient(ellipse at 50% 120%, #e6d9bc 0%, rgba(230,217,188,0) 55%);
+    }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -91,6 +111,26 @@
     }
     .nav-links a:hover,
     .nav-links a.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .nav-actions { display: flex; align-items: center; gap: 26px; }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      background: none;
+      border: 1px solid var(--line);
+      color: var(--gold);
+      cursor: pointer;
+      transition: color 0.25s, border-color 0.25s;
+    }
+    .theme-toggle:hover { border-color: var(--gold-soft); }
+    .theme-toggle svg { width: 17px; height: 17px; display: block; }
+    .theme-toggle .icon-moon { display: none; }
+    :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+    :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+
     .nav-burger {
       display: none;
       flex-direction: column;
@@ -337,21 +377,28 @@
       .content { padding: 56px 28px 90px; }
     }
   </style>
+  <script>try{if(localStorage.getItem('da-theme')==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
 </head>
 <body>
 
   <!-- ── Navigation ── -->
   <nav id="site-nav">
     <a class="nav-logo" href="index.html">Aditi Singh</a>
+    <div class="nav-actions">
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="research.html" class="active">Research</a></li>
       <li><a href="teaching.html">Teaching</a></li>
       <li><a href="https://papers.aditi-singh.com/CV.pdf" target="_blank">CV</a></li>
     </ul>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle light and dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M22 12h-2.4M4.4 12H2M19.07 4.93l-1.7 1.7M6.63 17.37l-1.7 1.7M19.07 19.07l-1.7-1.7M6.63 6.63l-1.7-1.7"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8z"/></svg>
+    </button>
     <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
+    </div>
   </nav>
 
   <!-- ── Mobile Menu ── -->
@@ -527,6 +574,15 @@
   </footer>
 
   <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      const root = document.documentElement;
+      const toLight = root.getAttribute('data-theme') !== 'light';
+      if (toLight) { root.setAttribute('data-theme', 'light'); }
+      else { root.removeAttribute('data-theme'); }
+      try { localStorage.setItem('da-theme', toLight ? 'light' : 'dark'); } catch (e) {}
+    });
+
     const burger = document.getElementById('nav-burger');
     const mobileMenu = document.getElementById('mobile-menu');
     burger.addEventListener('click', () => {
