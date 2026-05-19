@@ -1,3 +1,8 @@
 *Zone.Identifier
 Thumbs.db
 .DS_Store
+
+# Private / local-only — keep out of the public repo
+cv/
+JM2026/
+squarespace/
