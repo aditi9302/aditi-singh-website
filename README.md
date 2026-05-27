@@ -28,6 +28,7 @@ I am an Assistant Professor at the [Centre for Advanced Financial Research and L
 ├── .nojekyll               # Disables Jekyll processing on GitHub Pages
 ├── robots.txt              # Crawler directive
 ├── sitemap.xml             # Sitemap for search engines
+├── STYLE-GUIDE.md          # Design system / brand reference for new documents
 ├── .gitignore
 └── README.md               # This file
 ```
