@@ -451,32 +451,10 @@
       position: relative;
       z-index: 1;
     }
-    .research-areas {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+    .research-tags {
+      justify-content: flex-start;
+      margin-top: 0;
       margin-bottom: 46px;
-    }
-    .research-area {
-      padding: 30px 26px;
-      border: 1px solid var(--line);
-      border-top: 2px solid var(--gold-soft);
-      background: var(--bg-3);
-    }
-    .research-area-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 2.2rem;
-      color: var(--gold-soft);
-      line-height: 1;
-      margin-bottom: 14px;
-    }
-    .research-area-name {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--paper);
     }
     .btn-ghost {
       display: inline-block;
@@ -522,7 +500,6 @@
       .section { padding: 72px 28px; }
       .about-grid { grid-template-columns: 1fr; gap: 44px; }
       .research-band { padding: 72px 28px; }
-      .research-areas { grid-template-columns: 1fr; }
     }
   </style>
   <script>
@@ -629,7 +606,7 @@
           <p class="contact-row-label">Affiliation</p>
           <p class="contact-row-value">
             <a href="https://www.cafral.org.in/" target="_blank">CAFRAL, Reserve Bank of India</a><br>
-            Monetary Policy Department, Reserve Bank of India
+            <a href="https://www.rbi.org.in/" target="_blank">Monetary Policy Department, Reserve Bank of India</a>
           </p>
         </div>
 
@@ -656,19 +633,10 @@
         <span class="section-rule"></span>
       </div>
 
-      <div class="research-areas reveal reveal-delay-2">
-        <div class="research-area">
-          <p class="research-area-num">I</p>
-          <p class="research-area-name">Macroeconomics</p>
-        </div>
-        <div class="research-area">
-          <p class="research-area-num">II</p>
-          <p class="research-area-name">Monetary Policy</p>
-        </div>
-        <div class="research-area">
-          <p class="research-area-num">III</p>
-          <p class="research-area-name">Expectations</p>
-        </div>
+      <div class="tags research-tags reveal reveal-delay-2">
+        <span class="tag">Monetary Policy</span>
+        <span class="tag">Consumption</span>
+        <span class="tag">Expectations</span>
       </div>
 
       <a href="/research/" class="btn-ghost reveal reveal-delay-3">View Working Papers &rarr;</a>
