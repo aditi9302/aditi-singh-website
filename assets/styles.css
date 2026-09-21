@@ -81,6 +81,7 @@ h1 { font:400 64px/1.2 var(--serif); letter-spacing:-.035em; margin:9px 0 16px; 
 .portrait { display:block; flex-shrink:0; width:120px; height:150px; object-fit:cover; object-position:center 12%; filter:saturate(.55); }
 .about-layout { display:grid; grid-template-columns:minmax(0,1fr) 232px; gap:62px; padding:40px 0 44px; }
 .small-heading { margin-bottom:17px; }
+.bio p { text-align:justify; }
 .bio p + p { margin-top:17px; }
 .bio a { color:inherit; text-decoration-color:var(--line); }
 .bio a:hover { color:var(--accent); text-decoration-color:var(--accent); }
