@@ -160,7 +160,7 @@
   text-transform:uppercase;
   color:var(--accent);
 }
-.selected .section-heading > a { font-size:11px; }
+.selected .section-heading > a { font:500 11px/1.5 var(--sans); letter-spacing:.14em; text-transform:uppercase; }
 .selected .paper-title { font:500 17px/1.75 var(--serif); margin-bottom:3px; }
 .selected .paper-meta,
 .selected .paper-note { font:400 17px/1.75 var(--serif); color:var(--ink); }
