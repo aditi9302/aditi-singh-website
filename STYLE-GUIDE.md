@@ -33,7 +33,7 @@ Light backgrounds are pure white without parchment, stains, or textures. Dark mo
 - Abstracts use native disclosure controls with plus/minus indicators.
 - Policy projects have their own page; academic research remains on Research.
 - Selected Research shows Hand-to-Mouth Households first, then Household Expectations.
-- On the homepage, Selected Research matches the About heading (11px uppercase DM Sans in the accent color); paper titles and upright coauthor lines match the 17px body typography. Titles use weight 500 and coauthors weight 400.
+- Homepage typography matches Research: the hero name is 48px (40px on mobile); section headings and All Research are 18px uppercase DM Sans (16px on mobile), weight 600, in the accent color. Selected paper titles are 18px, weight 500; upright coauthor lines are 14px. About and Research interests body text is 16px with 1.8 line-height.
 - Selected Research has no line beneath its heading or vertical paper borders; its entries align with the section heading. Research and Policy keep their vertical borders.
 
 ## Teaching and contact

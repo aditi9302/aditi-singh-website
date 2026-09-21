@@ -165,3 +165,27 @@
 .selected .paper-meta,
 .selected .paper-note { font:400 17px/1.75 var(--serif); color:var(--ink); }
 .selected .paper-status { font-size:14px; }
+
+/* Homepage typography aligned with the current Research page. */
+.intro h1 { font-size:48px; }
+.intro .position { font-size:18px; line-height:1.4; }
+.about-layout .small-heading,
+.selected .section-heading h2,
+.selected .section-heading > a {
+  font:600 18px/1.5 var(--sans);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+.bio p,.research-interests p { font:400 16px/1.8 var(--serif); }
+.selected .section-heading { flex-wrap:wrap; gap:12px; }
+.selected .paper-title { font:500 18px/1.4 var(--serif); margin-bottom:6px; }
+.selected .paper-meta { font:400 14px/1.6 var(--serif); color:var(--muted); }
+.selected .paper-note { font-size:14px; line-height:1.65; color:var(--muted); }
+.selected .paper-status { font-size:12px; }
+@media(max-width:600px) {
+  .intro h1 { font-size:40px; }
+  .about-layout .small-heading,
+  .selected .section-heading h2,
+  .selected .section-heading > a { font-size:16px; }
+}
