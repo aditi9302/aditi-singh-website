@@ -152,6 +152,8 @@
 }
 
 /* Selected Research follows the homepage heading and body typography. */
+.selected .section-heading { border-bottom:0; }
+.selected .paper { border-left:0; padding-left:0; }
 .selected .section-heading h2 {
   font:500 11px/1.5 var(--sans);
   letter-spacing:.14em;
