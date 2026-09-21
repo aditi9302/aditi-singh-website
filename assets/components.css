@@ -135,7 +135,7 @@
 .research-interests p { font:inherit; color:var(--ink); }
 .page-heading h1 { font-size:48px; }
 .long-content .section-label { font-size:18px; letter-spacing:.12em; line-height:1.5; }
-.selected .section-heading h2 { font-size:18px; font-weight:600; line-height:1.5; }
+.selected .section-heading h2 { font:500 18px/1.5 var(--sans); letter-spacing:.14em; text-transform:uppercase; color:var(--accent); }
 :is(.long-content, .selected) .paper-title,
 .long-content .course-name { font-size:18px; font-weight:500; line-height:1.4; }
 :is(.long-content, .selected) .paper-meta,
@@ -150,3 +150,16 @@
   .long-content .section-label,
   .selected .section-heading h2 { font-size:16px; }
 }
+
+/* Selected Research follows the homepage heading and body typography. */
+.selected .section-heading h2 {
+  font:500 11px/1.5 var(--sans);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--accent);
+}
+.selected .section-heading > a { font-size:11px; }
+.selected .paper-title { font:500 17px/1.75 var(--serif); margin-bottom:3px; }
+.selected .paper-meta,
+.selected .paper-note { font:400 17px/1.75 var(--serif); color:var(--ink); }
+.selected .paper-status { font-size:14px; }

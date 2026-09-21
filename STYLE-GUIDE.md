@@ -33,6 +33,7 @@ Light backgrounds are pure white without parchment, stains, or textures. Dark mo
 - Abstracts use native disclosure controls with plus/minus indicators.
 - Policy projects have their own page; academic research remains on Research.
 - Selected Research shows Hand-to-Mouth Households first, then Household Expectations.
+- On the homepage, Selected Research matches the About heading (11px uppercase DM Sans in the accent color); paper titles and upright coauthor lines match the 17px body typography. Titles use weight 500 and coauthors weight 400.
 
 ## Teaching and contact
 
