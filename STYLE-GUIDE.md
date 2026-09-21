@@ -25,8 +25,8 @@ Light backgrounds are pure white without parchment, stains, or textures. Dark mo
 
 ## Research and policy
 
-- Paper titles: 22.5 pixels on desktop, 19.8 on mobile, weight 600.
-- Coauthors: 13.5 pixels; upright on Research and Policy, italic in the homepage selection.
+- Paper and course titles: 18 pixels, weight 500. Section labels: 18 pixels on desktop, 16 on mobile. Page titles: 48 pixels on desktop, 40 on mobile.
+- Coauthors: 14 pixels; upright on Research and Policy, italic in the homepage selection.
 - Entries have thin left borders that change color on hover and keyboard focus.
 - Title links change to the accent color on hover, without underlines.
 - SSRN and working-paper links are outlined buttons. Under Review is plain italic text.
@@ -39,7 +39,7 @@ Light backgrounds are pure white without parchment, stains, or textures. Dark mo
 - Role badges and semesters share a left column; course titles and “with …” share a right column. Columns stack on mobile.
 - No dot separates semesters and co-instructor text.
 - Preserve outlined teaching-evaluation links and hover colors.
-- Contact affiliation: CAFRAL, Monetary Policy Department, Reserve Bank of India, each on its own line.
+- Contact contains only emails and social icons. The footer contains only the copyright line. Research interests uses the About heading and body text styles.
 - LinkedIn, X, and GitHub use small SVG icons with accessible names.
 
 ## Theme behavior

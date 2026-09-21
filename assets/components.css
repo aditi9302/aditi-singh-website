@@ -129,3 +129,24 @@
   :is(.long-content, .selected) * { transition:none; }
   .long-content .evals-btn:hover { transform:none; }
 }
+
+/* Approved compact typography, shared across all four pages. */
+.research-interests { margin-top:25px; }
+.research-interests p { font:inherit; color:var(--ink); }
+.page-heading h1 { font-size:48px; }
+.long-content .section-label { font-size:18px; letter-spacing:.12em; line-height:1.5; }
+.selected .section-heading h2 { font-size:18px; font-weight:600; line-height:1.5; }
+:is(.long-content, .selected) .paper-title,
+.long-content .course-name { font-size:18px; font-weight:500; line-height:1.4; }
+:is(.long-content, .selected) .paper-meta,
+:is(.long-content, .selected) .paper-note,
+.long-content .course-meta { font-size:14px; }
+:is(.long-content, .selected) .paper-status { font-size:12px; }
+:is(.long-content, .selected) .paper-link { font-size:10px; }
+.long-content .abstract summary { font-size:11px; }
+.long-content .abstract-text { font-size:16px; }
+@media(max-width:600px) {
+  .page-heading h1 { font-size:40px; }
+  .long-content .section-label,
+  .selected .section-heading h2 { font-size:16px; }
+}
