@@ -4,7 +4,6 @@ function syncTheme() {
   const dark = root.dataset.theme === 'dark';
   toggle.setAttribute('aria-pressed', String(dark));
   toggle.setAttribute('aria-label', 'Switch to ' + (dark ? 'light' : 'dark') + ' mode');
-  toggle.querySelector('.theme-label').textContent = dark ? 'Light mode' : 'Dark mode';
   document.querySelector('link[rel="icon"]').href = '/favicon-' + (dark ? 'dark' : 'light') + '.svg';
 }
 toggle.addEventListener('click', () => {

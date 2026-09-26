@@ -21,7 +21,7 @@ Light backgrounds are pure white without parchment, stains, or textures. Dark mo
 - Small portrait: 120 by 150 pixels on desktop, reduced on mobile.
 - Page titles use one font and color, without split italic words or descriptive subheadings.
 - Main container: maximum width 1080 pixels, with responsive margins.
-- Navigation: Home, Research, Policy, Teaching, CV.
+- Navigation: Home, Research, Policy, Teaching, CV. Use 16px DM Sans; the CV label has no arrow. The theme toggle displays only its icon and retains an accessible label describing its action.
 
 ## Research and policy
 

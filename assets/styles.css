@@ -65,7 +65,7 @@ p,h1,h2,h3 { margin:0; }
 .site-header { display:flex; align-items:center; gap:28px; padding:28px 0; border-bottom:1px solid var(--line); }
 .brand { font:500 26px/1.2 var(--serif); color:var(--ink); text-decoration:none; }
 .header-affiliation { display:none; }
-.site-header nav { display:flex; gap:28px; margin-left:auto; font:13px/1.6 var(--sans); }
+.site-header nav { display:flex; gap:28px; margin-left:auto; font:16px/1.6 var(--sans); }
 .site-header nav a { color:var(--muted); text-decoration:none; padding:4px 0; border-bottom:1px solid transparent; white-space:nowrap; }
 .site-header nav a[aria-current],.site-header nav a:hover { color:var(--accent); border-color:var(--accent); }
 .theme-toggle { display:inline-flex; gap:7px; align-items:center; padding:7px 10px; border:1px solid var(--line); color:var(--muted); background:transparent; font:11px/1.5 var(--sans); }
