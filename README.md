@@ -6,7 +6,7 @@ Plain HTML, CSS, and JavaScript; no production build step.
 | URL | Source | Content |
 | --- | --- | --- |
 | `/` | `index.html` | Biography, contact, selected research |
-| `/research/` | `research/index.html` | Working papers, ongoing work, book chapters |
+| `/research/` | `research/index.html` | Working papers, publications, work in progress, policy papers and other writings |
 | `/policy/` | `policy/index.html` | Policy projects |
 | `/teaching/` | `teaching/index.html` | Courses and teaching evaluations |
 
