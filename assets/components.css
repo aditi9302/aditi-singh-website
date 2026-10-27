@@ -58,6 +58,7 @@
 :is(.long-content, .selected) .paper-link:focus-visible { color:var(--accent); border-color:var(--accent); }
 :is(.long-content, .selected) .paper-note { font-size:13.5px; line-height:1.65; margin-top:11px; }
 :is(.long-content, .selected) .paper-note em { color:var(--ink); }
+.long-content .version-note { color:var(--muted); max-width:860px; }
 .long-content .abstract { margin-top:13px; }
 .long-content .abstract summary {
   display:flex;
