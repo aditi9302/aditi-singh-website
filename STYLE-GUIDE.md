@@ -18,7 +18,7 @@ Light backgrounds are pure white without parchment, stains, or textures. Dark mo
 ## Typography and layout
 
 - Source Serif 4 for body copy, name, page titles, paper titles, and courses; DM Sans for navigation, labels, and buttons.
-- Small portrait: 120 by 150 pixels on desktop, reduced on mobile.
+- Small portrait: 120 pixels wide on desktop and tablet, 80 pixels on mobile, with its original proportions and colors. Vertically center the portrait beside the name and title; use a 16-pixel gap on mobile.
 - Page titles use one font and color, without split italic words or descriptive subheadings.
 - Main container: maximum width 1080 pixels, with responsive margins.
 - Navigation: Home, Research, Policy, Teaching, CV. Use 16px DM Sans; the CV label has no arrow. The theme toggle displays only its icon and retains an accessible label describing its action.
@@ -33,7 +33,7 @@ Light backgrounds are pure white without parchment, stains, or textures. Dark mo
 - Abstracts use native disclosure controls with plus/minus indicators.
 - Policy projects have their own page; academic research remains on Research.
 - Selected Research shows "When is Wealth Liquid? Gold and Household Financial Constraints in India" first, then "What Determines Household Expectations?".
-- Homepage typography matches Research: the hero name is 48px (40px on mobile); section headings and All Research are 18px uppercase DM Sans (16px on mobile), weight 600, in the accent color. Selected paper titles are 18px, weight 500; upright coauthor lines are 14px. About and Research interests body text is 16px with 1.8 line-height.
+- Homepage typography matches Research: the hero name is 48px (32–40px on mobile, scaling with screen width); the position is 18px (16px on mobile). Section headings and All Research are 18px uppercase DM Sans (16px on mobile), weight 600, in the accent color. Selected paper titles are 18px, weight 500; upright coauthor lines are 14px. About and Research interests body text is 16px with 1.8 line-height.
 - Selected Research has no line beneath its heading or vertical paper borders; its entries align with the section heading. Research and Policy keep their vertical borders.
 
 ## Teaching and contact

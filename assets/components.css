@@ -168,7 +168,10 @@
 .selected .paper-status { font-size:14px; }
 
 /* Homepage typography aligned with the current Research page. */
-.intro h1 { font-size:48px; }
+.intro { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; }
+.intro-copy { min-width:0; }
+.intro h1 { font-size:48px; margin:0 0 12px; }
+.intro .portrait { width:120px; height:auto; margin:0; filter:none; }
 .intro .position { font-size:18px; line-height:1.4; }
 .about-layout .small-heading,
 .selected .section-heading h2,
@@ -185,7 +188,10 @@
 .selected .paper-note { font-size:14px; line-height:1.65; color:var(--muted); }
 .selected .paper-status { font-size:12px; }
 @media(max-width:600px) {
-  .intro h1 { font-size:40px; }
+  .intro { gap:16px; }
+  .intro h1 { font-size:clamp(32px,9.2vw,40px); }
+  .intro .portrait { width:80px; }
+  .intro .position { font-size:16px; }
   .about-layout .small-heading,
   .selected .section-heading h2,
   .selected .section-heading > a { font-size:16px; }
