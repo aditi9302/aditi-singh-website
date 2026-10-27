@@ -32,7 +32,7 @@ Light backgrounds are pure white without parchment, stains, or textures. Dark mo
 - SSRN and working-paper links are outlined buttons. Under Review is plain italic text.
 - Abstracts use native disclosure controls with plus/minus indicators.
 - Policy projects have their own page; academic research remains on Research.
-- Selected Research shows Hand-to-Mouth Households first, then Household Expectations.
+- Selected Research shows "When is Wealth Liquid? Gold and Household Financial Constraints in India" first, then "What Determines Household Expectations?".
 - Homepage typography matches Research: the hero name is 48px (40px on mobile); section headings and All Research are 18px uppercase DM Sans (16px on mobile), weight 600, in the accent color. Selected paper titles are 18px, weight 500; upright coauthor lines are 14px. About and Research interests body text is 16px with 1.8 line-height.
 - Selected Research has no line beneath its heading or vertical paper borders; its entries align with the section heading. Research and Policy keep their vertical borders.
 
