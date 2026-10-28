@@ -3,9 +3,17 @@
 :root { color-scheme: light; --bg:#f9f7f2; --ink:#292624; --muted:#655e57; --accent:#773d40; --line:#dcd5cb; --panel:#f1ede6; --serif:'Source Serif 4',Georgia,serif; --sans:'DM Sans',Arial,sans-serif; }
 :root[data-theme="dark"] { color-scheme:dark; --bg:#201e1c; --ink:#eee9e2; --muted:#bcb4ab; --accent:#d8a5a7; --line:#48423d; --panel:#2a2724; }
 body { margin:0; background:var(--bg); color:var(--ink); font:17px/1.75 var(--serif); }
-/* 05: Change only the Editorial page background; inherit its original palette. */
-[data-design="editorial-white-original"][data-theme="light"] { --bg:#ffffff; --panel:#ffffff; background:#ffffff; }
-[data-design="editorial-white-original"][data-theme="light"] body { background:#ffffff; }
+/* Approved burgundy and ivory palette, shared by all public pages. */
+[data-design="editorial-white-original"][data-theme="light"] {
+  --bg:#fdfbf8;
+  --panel:#f5eee6;
+  --ink:#302923;
+  --muted:#706458;
+  --accent:#8b3443;
+  --line:#ded2c3;
+  background:var(--bg);
+}
+[data-design="editorial-white-original"][data-theme="light"] body { background:var(--bg); }
 /* Theme 05 dark mode uses the current website's original dark-academia palette. */
 [data-design="editorial-white-original"][data-theme="dark"] {
   --bg:#17120d;
