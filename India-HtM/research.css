@@ -9,7 +9,6 @@
 .paper-download .paper-card-authors{margin-top:18px;margin-bottom:0;font-size:13px}
 .tinted{background:#d9e5d7}
 .ex-profile-context{background:#f1df9f;border-left-color:#a77b18}
-.asset-stage .gold-art image{image-rendering:auto}
 .hero-deck,.intro-prose p,.asset-stage .stage-caption,.asset-explanation p,.liquidity-copy p,.liquidity-rule p,.deep-dive>p,.ex-note,.ex-detail p,.ex-profile-context p,.ex-event-definition,.reference-grid p,.research-contact p,.glossary dd,.ex-distribution-figure>p{ text-align:justify;text-align-last:left;text-justify:inter-word;hyphens:auto }
 .stage-top{justify-content:flex-start}
 @media(min-width:1500px){.hero{padding-bottom:76px}}
